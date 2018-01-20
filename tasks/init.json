@@ -5,7 +5,7 @@
   "parameters": {
     "excludes": {
       "description": "Packages to be excluded from updates",
-      "type": "Array[String]"
+      "type": "Optional[Array[String]]"
     }
   }
 }
