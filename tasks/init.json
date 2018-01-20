@@ -1,0 +1,11 @@
+{
+  "puppet_task_version": 1,
+  "supports_noop": false,
+  "description": "Installs all available package upgrades",
+  "parameters": {
+    "excludes": {
+      "description": "Packages to be excluded from updates",
+      "type": "Array[String]"
+    }
+  }
+}
