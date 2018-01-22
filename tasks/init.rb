@@ -17,6 +17,9 @@ def update(excludes)
     command = "yum update --exclude=#{exclude} -y"
   end
   system(command)
+  stdout, stderr, status = Open3.capture3(command)
+  raise Puppet::Error, stderr if status != 0
+  { status: stdout.strip }
 end
 
 params = JSON.parse(STDIN.read)
