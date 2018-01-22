@@ -1,6 +1,6 @@
 {
   "name": "jacobmw-upgrade",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Jacob McCoy Wade",
   "summary": "Task that upgrades all packages",
   "license": "Apache-2.0",
