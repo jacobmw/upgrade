@@ -31,7 +31,7 @@ end
 def yum_update(excludes)
   exclude = excludes.join(',') unless excludes.nil?
   command = 'yum update -y'
-  command << "--exclude=#{exclude}" unless exclude.nil?
+  command << " --exclude=#{exclude}" unless exclude.nil?
   stdout, stderr, status = Open3.capture3(command)
   raise Puppet::Error, stderr if status != 0
   { status: stdout.strip }
