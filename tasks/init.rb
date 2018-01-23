@@ -51,7 +51,6 @@ begin
   when 'RedHat'
     result = yum_update(excludes)
   end
-  puts result
   puts result.to_json
   exit 0
 rescue Puppet::Error => e
