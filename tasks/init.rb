@@ -21,7 +21,7 @@ end
 
 def apt_unhold(excludes)
   excludes.each do |exclude|
-    @hold = "apt-mark hold #{exclude}"
+    @hold = "apt-mark unhold #{exclude}"
     stdout, stderr, status = Open3.capture3(@hold)
     raise Puppet::Error, stderr if status != 0
     { status: stdout.strip }
@@ -44,7 +44,7 @@ begin
   case Facter.value(:osfamily)
   when 'Debian'
     if excludes
-      result = apt_hold(excludes), apt_update + apt_unhold
+      result = apt_hold(excludes), apt_update, apt_unhold(excludes)
     else
       result = apt_update
     end
