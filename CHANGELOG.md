@@ -1,11 +1,5 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+## Release 0.1.2
 
-## Release 0.1.0
-
-**Features**
-
-**Bugfixes**
-
-**Known Issues**
+This is the first working release of this module

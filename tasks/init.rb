@@ -2,6 +2,7 @@
 require 'facter'
 require 'json'
 require 'puppet'
+require 'open3'
 
 def apt_hold(excludes)
   excludes.each do |exclude|
