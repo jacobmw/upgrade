@@ -13,8 +13,8 @@ def apt_hold(excludes)
   end
 end
 
-def apt_update
-  cmd_string = 'apt-get upgrade -y'
+def apt_upgrade
+  cmd_string = 'apt-get dist-upgrade -y'
   stdout, stderr, status = Open3.capture3(cmd_string)
   raise Puppet::Error, stderr if status != 0
   { status: stdout.strip }
@@ -45,9 +45,9 @@ begin
   case Facter.value(:osfamily)
   when 'Debian'
     if excludes
-      result = apt_hold(excludes), apt_update, apt_unhold(excludes)
+      result = apt_hold(excludes), apt_upgrade, apt_unhold(excludes)
     else
-      result = apt_update
+      result = apt_upgrade
     end
   when 'RedHat'
     result = yum_update(excludes)
